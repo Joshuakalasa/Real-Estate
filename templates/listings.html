@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+<!-- django has a syntax for template files from jinja -->
+
+{% block content %}
+<!-- loopig through listings -->
+<a href="/add-listing/" class="text-blue-500"><input class="btn btn-primary text-blue-500" type="button" value="create post"></a>
+{% for listing in listings %}
+<!-- fetch title from listings -->
+<br />
+<div class="px-3 py-2 bg-gray-100 rounded-sm">
+
+  <!-- avater placemet -->
+  <img
+    src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+    class="rounded-full w-32 "
+    alt="Avatar"
+    
+  /> 
+  <!-- avator ends -->
+  <h2 class="px-9 text-5xl"l>Joshua kalasa</h2>
+  
+  <a href="/listings/{{ listing.id}}/" class="text-blue-500">
+    <input class="btn btn-primary text-blue-500" type="button" value="View Details"> </a>
+
+  <h3 class="text-3xl text-gray-900">{{ listing.title}}</h3>
+      <img src="{{ listing.image.url }}" alt="" class="px-20" />
+      
+   
+  <!-- <h3 class="text-3xl text-gray-900">{{ listing.title}}</h3>
+  <img src="{{ listing.image.url }}" alt="" class="px-20" />
+  <a href="/listings/{{ listing.id}}/" class="text-blue-500"> View detials </a> -->
+</div>
+{% endfor %} {% endblock content %}
